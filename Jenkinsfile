@@ -28,7 +28,6 @@ pipeline {
                         export AWS_SHARED_CREDENTIALS_FILE=${AWS_CREDENTIALS_FILE}
                         aws eks --region ${AWS_REGION} update-kubeconfig --name ${EKS_CLUSTER_NAME}
                         '''
-                    """
                 }
                 }
             }
