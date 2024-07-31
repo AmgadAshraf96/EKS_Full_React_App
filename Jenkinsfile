@@ -72,8 +72,16 @@ pipeline {
         stage('Deploy') {
             steps {
                     // Add your deployment steps here
+                    script{
+                    // export the version from the package.json
+                    def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
+                    sh  """
+                        kubectl patch configmap backend-config --patch "{\\"data\\": {\\"IMAGE_TAG\\": \\"v${version}\\"}}"
+                        """
+                    // apply app yaml files
                     deployApp()
                     echo ' Backend Deployed '
+                }   
             }
         }
     }
