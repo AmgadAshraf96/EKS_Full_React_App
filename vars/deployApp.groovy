@@ -1,8 +1,5 @@
-def call() {
-        /* environment {
-        AWS_REGION = 'us-east-1' // Replace with your AWS region
-        EKS_CLUSTER_NAME = 'prod_eks_cluster' // Replace with your EKS cluster name
-        }*/
+def call(AWS_CREDENTIALS) {
+
         withCredentials([usernamePassword(credentialsId: 'AWS_CREDENTIALS', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh """
                     # Configure AWS CLI
