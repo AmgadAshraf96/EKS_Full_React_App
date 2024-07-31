@@ -4,6 +4,8 @@ pipeline {
 //This command to check  
     environment {
         DOCKER_CREDENTIALS_ID = 'Amgad-Docker-Cred'
+        AWS_REGION = 'us-east-1' // Replace with your AWS region
+        EKS_CLUSTER_NAME = 'DEVOPS_eks_cluster' // Replace with your EKS cluster name
     }
     stages {           
       stage('Build Frontend') {
