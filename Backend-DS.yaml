@@ -15,9 +15,12 @@ spec:
     spec:
       containers:
       - name: backend
-        image: amgadashraf/fbackend:latest
+        image: amgadashraf/fbackend:${IMAGE_TAG}
         ports:
         - containerPort: 80
+        envFrom:
+            - configMapRef:
+                name: backend-config
 ---
 apiVersion: v1
 kind: Service
