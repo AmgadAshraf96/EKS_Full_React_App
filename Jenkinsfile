@@ -63,8 +63,24 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Add your deployment steps here
-                deployApp()
-                echo 'Frontend Deployed'
+                script{
+                    // export the version from the package.json
+                    def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
+                    // check if the frontend configmap is exist
+                    def configMapExists = sh(script: "kubectl get configmap frontend-config --ignore-not-found", returnStatus: true)
+                        if (configMapExists != 0) {
+                            sh """
+                            kubectl create configmap frontend-config --from-literal=IMAGE_TAG=initial
+                            """
+                        }
+                    // update the config map with version name
+                    sh  """
+                        kubectl patch configmap frontend-config --patch "{\\"data\\": {\\"IMAGE_TAG\\": \\"v${version}\\"}}"
+                        """
+                    // apply app yaml files
+                    deployApp()
+                    echo 'Frontend Deployed'
+                }
             }
         }
     }
