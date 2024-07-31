@@ -3,11 +3,11 @@ pipeline {
     agent any 
         environment {
         AWS_REGION = 'us-east-1' // Replace with your AWS region
-        EKS_CLUSTER_NAME = 'prod_eks_cluster' // Replace with your EKS cluster name
+        EKS_CLUSTER_NAME = 'DEVOPS_eks_cluster' // Replace with your EKS cluster name
     }
     stages {
         stage('Access_AWS') {
-            steps {
+            /*steps {
                     withCredentials([usernamePassword(credentialsId: 'AWS_CREDENTIALS', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh """
                     # Configure AWS CLI
@@ -16,6 +16,16 @@ pipeline {
                     aws configure set default.region ${env.AWS_REGION}
                     
                     # Update kubeconfig for EKS
+                    aws eks --region ${AWS_REGION} update-kubeconfig --name ${EKS_CLUSTER_NAME}
+                    """
+                }
+                }*/
+                
+            steps {
+                withCredentials([file(credentialsId: 'AWS_CREDENTIALS_F', variable: 'AWS_CREDENTIALS_FILE')]) {
+                    sh """
+                    # Configure AWS CLI
+                    export AWS_SHARED_CREDENTIALS_FILE=${AWS_CREDENTIALS_FILE}
                     aws eks --region ${AWS_REGION} update-kubeconfig --name ${EKS_CLUSTER_NAME}
                     """
                 }
