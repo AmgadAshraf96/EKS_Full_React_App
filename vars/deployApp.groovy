@@ -3,10 +3,10 @@ def call() {
                     rm -rf cluster_dir
                     git clone -b App_Kube_cluster https://github.com/amgad96/EKS_Full_React_App.git cluster_dir
                     cd cluster_dir
-                    sudo kubectl apply -f DB-PersistentVol.yaml
-                    sudo kubectl apply -f MongoDB-DS.yaml
-                    sudo kubectl apply -f Backend-DS.yaml
-                    sudo kubectl apply -f Frontend-DS.yaml
+                    kubectl apply -f DB-PersistentVol.yaml
+                    kubectl apply -f MongoDB-DS.yaml
+                    kubectl apply -f Backend-DS.yaml
+                    kubectl apply -f Frontend-DS.yaml
                     cd ..
                     rm -rf cluster_dir
                     """
