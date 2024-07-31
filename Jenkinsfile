@@ -45,7 +45,17 @@ pipeline {
                         }
                 }
             }
-
+        stage('Access_AWS') {                
+            steps {
+                withCredentials([file(credentialsId: 'AWS_CREDENTIALS_F', variable: 'AWS_CREDENTIALS_FILE')]) {
+                    sh '''
+                        # Configure AWS CLI
+                        export AWS_SHARED_CREDENTIALS_FILE=${AWS_CREDENTIALS_FILE}
+                        aws eks --region ${AWS_REGION} update-kubeconfig --name ${EKS_CLUSTER_NAME}
+                        '''
+                }
+                }
+            }
         stage('Deploy') {
             steps {
                 // Add your deployment steps here
