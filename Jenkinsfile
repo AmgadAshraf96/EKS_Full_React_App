@@ -34,14 +34,16 @@ pipeline {
                             def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
                             sh """
                             echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-                            docker build -t amgadashraf/ffrontend:latest .
-                            docker push amgadashraf/ffrontend:latest
+                            docker build -t amgadashraf/ffrontend:"v${version}" .
+                            docker push amgadashraf/ffrontend:"v${version}"
                             docker logout
                                 """
                             /*
                               ## we could use these command to build and push the same version of package.json
                               docker build -t amgadashraf/ffrontend:"v${version}" .
                               docker push amgadashraf/ffrontend:"v${version}"
+                              docker build -t amgadashraf/ffrontend:latest .
+                              docker push amgadashraf/ffrontend:latest
                             */
                                 }
                         }
