@@ -24,10 +24,10 @@ kind: Service
 metadata:
   name: frontend
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 3000
     targetPort: 3000 
-    nodePort: 30008
+    #nodePort: 30008
   selector:
     app: frontend
