@@ -59,7 +59,7 @@ pipeline {
                     // apply app yaml files
                     deployApp()
                     echo 'Frontend Deployed'
-                }
+                
             }
         }
     }
