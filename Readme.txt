@@ -52,3 +52,18 @@ Step 5: Install AWS CLI and kubectl
     -Verify kubectl configuration:
         kubectl get nodes
       You should see a list of nodes in your EKS cluster.
+
+
+Jenkins Configuration:
+  Create a Secret File Credential:
+    In your Jenkins server, create a Secret file credential to allow Jenkins to access the EKS cluster and run application YAML files.
+      The secret file should contain the following content:
+        AWS_ACCESS_KEY_ID="anaccesskey"
+        AWS_SECRET_ACCESS_KEY="asecretkey"
+
+  Create a Username and Password Credential:
+    In your Jenkins server, create a Username and Password credential to allow Jenkins to push images to Docker Hub.
+      Note: The password will be a Personal Access Token generated in Docker Hub.
+
+
+    
