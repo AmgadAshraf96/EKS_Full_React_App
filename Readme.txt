@@ -7,6 +7,7 @@ Step 1: Run Installation Scripts
     jenkins_installation.sh: Sets up the server as a Jenkins server.
     terraform_installation.sh: Prepares the environment to create an EKS cluster using Terraform (Infrastructure as Code).
     nodejs_installation.sh: Installs Node.js for testing and building the application artifact
+    docker_installation.sh: Allows the Jenkins server to use Docker commands, such as building and pushing Docker images.
 
 Step 2: Provide AWS Credentials
   Set the AWS credentials to enable Terraform to create the EKS cluster:
@@ -54,7 +55,8 @@ Step 5: Install AWS CLI and kubectl
       You should see a list of nodes in your EKS cluster.
 
 
-Jenkins Configuration:
+
+Step 6: Jenkins Configuration:
   Create a Secret File Credential:
     In your Jenkins server, create a Secret file credential to allow Jenkins to access the EKS cluster and run application YAML files.
       The secret file should contain the following content:
@@ -65,7 +67,7 @@ Jenkins Configuration:
     In your Jenkins server, create a Username and Password credential to allow Jenkins to push images to Docker Hub.
       Note: The password will be a Personal Access Token generated in Docker Hub.
 
-Configure GitHub Webhook:
+Step 7: Configure GitHub Webhook:
 
 Add a webhook in your GitHub repository to connect to your Jenkins server.
 You will need to add the IP address of your Jenkins server in the webhook configuration. As in the issue named "Trigger token name for multibranch Scan webhook on Jenkins server".
