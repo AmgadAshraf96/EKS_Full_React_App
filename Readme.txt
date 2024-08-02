@@ -65,5 +65,11 @@ Jenkins Configuration:
     In your Jenkins server, create a Username and Password credential to allow Jenkins to push images to Docker Hub.
       Note: The password will be a Personal Access Token generated in Docker Hub.
 
+Configure GitHub Webhook:
+
+Add a webhook in your GitHub repository to connect to your Jenkins server.
+You will need to add the IP address of your Jenkins server in the webhook configuration. As in the issue named "Trigger token name for multibranch Scan webhook on Jenkins server".
+
+
 
     
