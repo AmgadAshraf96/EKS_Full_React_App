@@ -1,4 +1,6 @@
 This project consists of a Node.js backend, a React frontend, and MongoDB.
+Description: This project uses Amazon EKS (Elastic Kubernetes Service) to create and manage the Kubernetes cluster.
+
 Project Setup Instructions
 Follow these steps to set up the environment for this project.
 
