@@ -72,7 +72,7 @@ Step 6: Jenkins Configuration:
 Step 7: Configure GitHub Webhook:
 
 Add a webhook in your GitHub repository to connect to your Jenkins server.
-You will need to add the IP address of your Jenkins server in the webhook configuration. As in the issue named "Trigger token name for multibranch Scan webhook on Jenkins server".
+You will need to add the IP address of your Jenkins server in the webhook configuration. As in "webhook.png".
 
 
 
