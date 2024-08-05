@@ -1,8 +1,6 @@
-This project consists of a Node.js backend, a React frontend, and MongoDB.
-Description: This project uses Amazon EKS (Elastic Kubernetes Service) to create and manage the Kubernetes cluster.
-Project diagram file name is "EKS_Full_React_APP.jpg"
+This project consists of a Node.js backend, a React frontend, and MongoDB. It uses Amazon EKS (Elastic Kubernetes Service) to create and manage the Kubernetes cluster. The project diagram file is named "EKS_Full_React_APP.jpg".
 
-Project Setup Instructions
+Project Setup Instructions:-
 Follow these steps to set up the environment for this project.
 
 Step 1: Run Installation Scripts
