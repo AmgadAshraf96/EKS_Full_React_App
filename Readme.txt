@@ -68,7 +68,7 @@ Step 6: Jenkins Configuration:
 
 Step 7: Configure GitHub Webhook:
 Add a webhook in your GitHub repository to connect to your Jenkins server.
-You will need to add the IP address of your Jenkins server in the webhook configuration. as shown in "webhook.png".
+You will need to add the IP address of your Jenkins server in the webhook configuration, as shown in "webhook.png".
 
 Step 8: Configure the Jenkins shared library:
 You will need to add the repository URL and branch name in the Jenkins shared library configuration, as shown in "Shared_library_config.jpg".
