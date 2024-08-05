@@ -56,8 +56,6 @@ Step 5: Install AWS CLI and kubectl
         kubectl get nodes
       You should see a list of nodes in your EKS cluster.
 
-
-
 Step 6: Jenkins Configuration:
   Create a Secret File Credential:
     In your Jenkins server, create a Secret file credential to allow Jenkins to access the EKS cluster and run application YAML files.
@@ -70,10 +68,10 @@ Step 6: Jenkins Configuration:
       Note: The password will be a Personal Access Token generated in Docker Hub.
 
 Step 7: Configure GitHub Webhook:
-
 Add a webhook in your GitHub repository to connect to your Jenkins server.
 You will need to add the IP address of your Jenkins server in the webhook configuration. As in "webhook.png".
 
-
+Step 8: Configure Jenkins Shared library:
+  You will need to add the repo url and branch name in the jenkins shared library configuration. As in "Shared_library_config.jpg".
 
     
