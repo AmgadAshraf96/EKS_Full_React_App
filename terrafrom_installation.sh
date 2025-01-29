@@ -1,5 +1,7 @@
 #!/bin/bash
 #Ensure that your system is up to date and you have installed the gnupg, software-properties-common, and curl packages installed
+#gnupg: Required for handling cryptographic keys, essential for verifying repository signatures.
+#software-properties-common: Provides utilities like add-apt-repository, which simplifies managing PPAs and external repositories.
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 #Install the HashiCorp GPG key
 wget -O- https://apt.releases.hashicorp.com/gpg | \
